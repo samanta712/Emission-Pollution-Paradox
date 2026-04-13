@@ -174,24 +174,24 @@ def update(view):
         # ── Three tables ──────────────────────────────────────────────────
         # Table 1: Top 5 total emitters
         t1 = (df.nlargest(5, "total_emissions_all_pollutants")
-                [["Country Name", "Total Emissions (Mt)", "PM2.5 (ug/m3)"]]
+                [["Country Name"]]
                 .rename(columns={"Country Name": "Country"}))
 
         # Table 2: Top 5 most polluted (PM2.5)
         t2 = (df.nlargest(5, "PM25 Concentration")
-                [["Country Name", "PM2.5 (ug/m3)", "Per Capita (kg/person)"]]
+                [["Country Name"]]
                 .rename(columns={"Country Name": "Country"}))
 
         # Table 3: Top 5 per capita emitters
         t3 = (df.nlargest(5, "Per capita emissions")
-                [["Country Name", "Per Capita (kg/person)", "Total Emissions (Mt)"]]
+                [["Country Name"]]
                 .rename(columns={"Country Name": "Country"}))
 
         secondary = html.Div([
             html.Div([
-                make_table(t1, "Top 5 — Total Emitters"),
+                make_table(t1, "Top 5 — Highest Total Emissions"),
                 html.Div(style={"width": "16px"}),
-                make_table(t2, "Top 5 — Most Polluted (PM2.5)"),
+                make_table(t2, "Top 5 — Most Polluted (PM 2.5)"),
                 html.Div(style={"width": "16px"}),
                 make_table(t3, "Top 5 — Highest Per Capita Emissions"),
             ], style={"display": "flex", "alignItems": "flex-start",
