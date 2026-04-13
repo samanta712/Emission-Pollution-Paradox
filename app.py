@@ -42,7 +42,7 @@ REGION_WRITEUPS = {
         "Latin America & Caribbean sits in a middle tier on both axes. Inequality "
         "within the region is visible: upper-middle-income countries emit more but "
         "invest in air-quality controls, while lower-income nations face compounding "
-        "burdens of poverty and pollution.",
+        "burdens of pollution.",
     "Middle East, North Africa, Afghanistan & Pakistan":
         "MENA & South-West Asia presents a stark paradox. Oil-rich high-income states "
         "lead on per-capita emissions, yet the heaviest PM2.5 burden falls on "
@@ -122,9 +122,7 @@ app.layout = html.Div([
 
     html.Div(id="secondary-content", style={"padding": "8px 0"}),
 
-    html.Footer("* SIDS countries removed from all plots. "
-                "Per capita emissions in kg/person (all air pollutants). "
-                "Total emissions in Mt (megatonnes).",
+    html.Footer("* SIDS(Small Island Developing States) countries removed from all plots. ",
                 style={"textAlign": "center", "color": "grey",
                        "fontSize": "11px", "marginTop": "24px",
                        "borderTop": "1px solid #eee", "paddingTop": "12px"}),
