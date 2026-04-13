@@ -102,7 +102,7 @@ app.layout = html.Div([
     html.H1("The Emission-Pollution Paradox",
             style={"textAlign": "center", "marginBottom": "4px"}),
 
-    html.P("Exploring the disconnect between per-capita emissions and PM2.5 exposure.",
+    html.P("Exploring the disconnect between per-capita emissions and PM2.5 exposure for the years 2010-2019.",
            style={"textAlign": "center", "color": "grey", "marginTop": 0}),
 
     html.Div([
@@ -163,11 +163,9 @@ def update(view):
             },
         )
         fig.add_vline(x=MED_EMISS, line_dash="dash", line_color="steelblue",
-                      annotation_text=f"Median {MED_EMISS*1000:.0f} kg/person",
-                      annotation_position="top right")
+                      annotation_text=f"Global Median Per Capita Emission: {MED_EMISS*1000:.0f} kg/person")
         fig.add_hline(y=MED_PM25, line_dash="dash", line_color="tomato",
-                      annotation_text=f"Median PM2.5 {MED_PM25:.1f} ug/m3",
-                      annotation_position="top right")
+                      annotation_text=f"Global Median PM 2.5 Concentration {MED_PM25:.1f} ug/m3")
         fig.update_layout(
             height=600,
             margin=dict(l=60, r=140, t=60, b=60),
@@ -234,10 +232,14 @@ def update(view):
                 "PM25 Concentration":   "Wtd. PM2.5 Concentration (ug/m3)",
             },
         )
+        #fig.add_vline(x=MED_EMISS, line_dash="dash", line_color="steelblue",
+                      #annotation_text=f"Median {MED_EMISS*1000:.0f} kg/person")
+        #fig.add_hline(y=MED_PM25, line_dash="dash", line_color="tomato",
+                      #annotation_text=f"Median PM2.5 {MED_PM25:.1f} ug/m3")
         fig.add_vline(x=MED_EMISS, line_dash="dash", line_color="steelblue",
-                      annotation_text=f"Median {MED_EMISS*1000:.0f} kg/person")
+                      annotation_text=f"Global Median Per Capita Emission: {MED_EMISS*1000:.0f} kg/person")
         fig.add_hline(y=MED_PM25, line_dash="dash", line_color="tomato",
-                      annotation_text=f"Median PM2.5 {MED_PM25:.1f} ug/m3")
+                      annotation_text=f"Global Median PM 2.5 Concentration {MED_PM25:.1f} ug/m3")
         fig.update_traces(textposition="top center", textfont=dict(size=11))
         fig.update_layout(
             height=600,
@@ -285,9 +287,9 @@ def update(view):
             },
         )
         fig.add_vline(x=MED_EMISS, line_dash="dash", line_color="steelblue",
-                      annotation_text=f"Global median {MED_EMISS*1000:.0f} kg/person")
+                      annotation_text=f"Global median Per Capita Emission {MED_EMISS*1000:.0f} kg/person")
         fig.add_hline(y=MED_PM25, line_dash="dash", line_color="tomato",
-                      annotation_text=f"Global median PM2.5 {MED_PM25:.1f} ug/m3")
+                      annotation_text=f"Global median PM 2.5 Conencentration{MED_PM25:.1f} ug/m3")
         fig.update_layout(
             height=600,
             margin=dict(l=60, r=140, t=60, b=60),
@@ -358,8 +360,11 @@ def update(view):
         ])
         return fig, secondary
 
+
+
 server = app.server
 
 if __name__ == "__main__":
     app.run(debug=True)
+
 
